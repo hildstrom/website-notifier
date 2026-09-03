@@ -1,0 +1,12 @@
+@startuml
+
+component "Website Notifier\n(Rust Tokio)" as wn
+component "Website" as web
+component ntfy.sh
+component phone
+
+wn <-right-> ntfy.sh : HTTP\nPOST
+ntfy.sh -right-> phone : Push\nNotification
+wn <-down-> web : HTTP\nGET
+
+@enduml
